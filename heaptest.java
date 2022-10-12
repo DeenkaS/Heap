@@ -24,7 +24,7 @@ public class heaptest {
 
 
 
-        System.out.println(hip.push(100));
+         System.out.println(hip.push(100));
         System.out.println(hip.push(3));
         System.out.println(hip.push(3));
         System.out.println(hip.push(3));

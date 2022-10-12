@@ -81,7 +81,7 @@ public class Heap {
         Integer temp;
         
         while(currentNode.right != null && currentNode.left != null){
-            if(currentNode.value > currentNode.right.value && (currentNode.right.value < currentNode.left.value || currentNode.left == null && currentNode.right != null)){
+            if(currentNode.value > currentNode.right.value && currentNode.right.value < currentNode.left.value || currentNode.right != null && currentNode.left == null){
                 temp = currentNode.value;
                 currentNode.value = currentNode.right.value;
                 currentNode.right.value = temp;
@@ -89,7 +89,7 @@ public class Heap {
                 levelDrop++;
 
 
-            } else if (currentNode.value >= currentNode.left.value && (currentNode.right.value > currentNode.left.value || currentNode.left != null && currentNode.right == null)) {
+            } else if (currentNode.value > currentNode.left.value && currentNode.right.value > currentNode.left.value || currentNode.left != null && currentNode.right == null){
                 temp = currentNode.value;
                 currentNode.value = currentNode.left.value;
                 currentNode.left.value = temp;
@@ -101,8 +101,6 @@ public class Heap {
                 return levelDrop;
             }
         }
-
-
         return levelDrop;
     }
 
