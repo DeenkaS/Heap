@@ -73,6 +73,39 @@ public class Heap {
 
     }
 
+    //input = integer that raises value and puts it lower in heap.
+    public Integer push(Integer Incr){
+        Integer levelDrop = 0;
+        currentNode = root;
+        currentNode.value += Incr;
+        Integer temp;
+        
+        while(currentNode.right != null && currentNode.left != null){
+            if(currentNode.value > currentNode.right.value && (currentNode.right.value < currentNode.left.value || currentNode.left == null && currentNode.right != null)){
+                temp = currentNode.value;
+                currentNode.value = currentNode.right.value;
+                currentNode.right.value = temp;
+                currentNode = currentNode.right;
+                levelDrop++;
+
+
+            } else if (currentNode.value >= currentNode.left.value && (currentNode.right.value > currentNode.left.value || currentNode.left != null && currentNode.right == null)) {
+                temp = currentNode.value;
+                currentNode.value = currentNode.left.value;
+                currentNode.left.value = temp;
+                currentNode = currentNode.left;
+                levelDrop++;
+            } else if(currentNode.right == null && currentNode.left == null){
+                return levelDrop;
+            } else {
+                return levelDrop;
+            }
+        }
+
+
+        return levelDrop;
+    }
+
     public void promote() {
 
         if (currentNode.size == 0) {
@@ -111,7 +144,5 @@ public class Heap {
                 }
             }
         }
-
     }
-
 }
