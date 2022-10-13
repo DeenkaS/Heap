@@ -1,6 +1,9 @@
+import java.util.Random;
+
 public class heaptest {
     public static void main(String []args){
         Heap hip = new Heap();
+        Random rand = new Random();
         
 
         hip.add(7);
@@ -17,14 +20,24 @@ public class heaptest {
 
         
 
+
+
+
+
+         System.out.println(hip.push(100));
+        System.out.println(hip.push(3));
+        System.out.println(hip.push(3));
+        System.out.println(hip.push(3));
+        System.out.println(hip.push(3));
+
+    /*  System.out.println(hip.remove());
         System.out.println(hip.remove());
         System.out.println(hip.remove());
         System.out.println(hip.remove());
         System.out.println(hip.remove());
         System.out.println(hip.remove());
         System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());
+        System.out.println(hip.remove());*/
 
 
 
