@@ -60,9 +60,10 @@ public class Heap {
 
     public Integer remove() {
         currentNode = root;
-        if (root.value == null) {
+        if (root == null) {
             return null;
         } else {
+
 
             Node temp = root;
 
