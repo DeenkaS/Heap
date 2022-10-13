@@ -11,22 +11,22 @@ public class Heap {
 
         if (currentNode != null) {
             currentNode.size++;
-            System.out.println("size got bigger");
+            //System.out.println("size got bigger");
         }
         // if the tree is empty create it.
         if (root == null) {
             root = new Node(newValue);
             currentNode = root;
-            System.out.println("created root");
+            //System.out.println("created root");
             return;
         }
         // if the current nodes value is smaller switch it out
         // and run again with the bigger value
-        if (newValue < currentNode.value) {
+        if (currentNode.value != null && newValue < currentNode.value) {
             int temp = newValue;
             newValue = currentNode.value;
             currentNode.value = temp;
-            System.out.println("swapped a value");
+            //System.out.println("swapped a value");
 
         }
 
@@ -37,21 +37,21 @@ public class Heap {
         if (currentNode.left == null) {
             currentNode.left = new Node(newValue);
             currentNode = root;
-            System.out.println("added to left");
+            //System.out.println("added to left");
             return;
         } else if (currentNode.right == null) {
             currentNode.right = new Node(newValue);
             currentNode = root;
-            System.out.println("added to right");
+            //System.out.println("added to right");
             return;
         } else {
             if (currentNode.right.size < currentNode.left.size) {
                 currentNode = currentNode.right;
-                System.out.println("stepped down a level and to the right");
+                //System.out.println("stepped down a level and to the right");
                 add(newValue);
             } else {
                 currentNode = currentNode.left;
-                System.out.println("stepped down a level and to the left");
+                //System.out.println("stepped down a level and to the left");
                 add(newValue);
             }
         }
