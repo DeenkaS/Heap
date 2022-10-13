@@ -4,40 +4,27 @@ public class heaptest {
     public static void main(String []args){
         Heap hip = new Heap();
         Random rand = new Random();
+        int k = 1_000;
+        Integer pushSum = 0;
         
 
-        hip.add(7);
-        hip.add(2);
-        hip.add(5);
-        hip.add(4);
-        hip.add(8);
-        hip.add(1);
-        hip.add(3);
-        hip.add(6);
-        hip.add(0);
+       for(int i = 0; i < k ; i++){
+            for(int j = 0; j < 64; j++){
+                hip.add(rand.nextInt(100));
+            }
 
-        System.out.println(hip.root.value);
+            for(int j = 0; j < 64; j++){   
+               pushSum += hip.push(rand.nextInt(100));
+                
+            }
 
-        
+            for(int j = 0; j < 63; j++){
+                hip.remove();
+            }
 
+       }
 
-
-
-
-         System.out.println(hip.push(100));
-        System.out.println(hip.push(3));
-        System.out.println(hip.push(3));
-        System.out.println(hip.push(3));
-        System.out.println(hip.push(3));
-
-    /*  System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());
-        System.out.println(hip.remove());*/
+       System.out.println("average depth of push down a tree of size 64: " + (pushSum/(k*64) ));
 
 
 
